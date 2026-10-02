@@ -6,16 +6,16 @@
     <title>Portafolio | Nathalia Gómez</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #be185d;
-            --primary-dark: #9d174d;
-            --rosa: #f9a8d4;
+            --primary-dark: #831843;
+            --rosa: #f472b6;
             --rosa-suave: #fbcfe8;
             --blush: #fff1f5;
-            --dark: #4a1d34;
-            --gray: #7a5568;
+            --dark: #501533;
+            --gray: #7d4865;
             --titulo: 'Fraunces', Georgia, serif;
         }
 
@@ -40,18 +40,19 @@
 
         /* Navegación */
         nav {
-            background: rgba(255, 255, 255, 0.92);
+            background: rgba(255, 255, 255, 0.95);
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 12px rgba(190, 24, 93, 0.10);
+            box-shadow: 0 4px 20px rgba(190, 24, 93, 0.08);
             position: sticky;
             top: 0;
             z-index: 100;
+            backdrop-filter: blur(8px);
         }
 
-        .logo { font-weight: 700; font-size: 1.25rem; color: var(--primary); }
+        .logo { font-weight: 700; font-size: 1.35rem; color: var(--primary); }
 
         .nav-links { display: flex; gap: 1.5rem; list-style: none; }
 
@@ -68,10 +69,10 @@
         header {
             position: relative;
             overflow: hidden;
-            padding: 4.5rem 1.5rem;
+            padding: 5rem 1.5rem;
             background:
-                radial-gradient(circle at 12% 18%, var(--rosa-suave) 0, transparent 42%),
-                radial-gradient(circle at 88% 85%, var(--rosa) 0, transparent 40%),
+                radial-gradient(circle at 10% 20%, var(--rosa-suave) 0, transparent 45%),
+                radial-gradient(circle at 90% 80%, var(--rosa) 0, transparent 40%),
                 var(--blush);
         }
 
@@ -79,9 +80,9 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-image: radial-gradient(#e9a3c4 1.3px, transparent 1.3px);
-            background-size: 24px 24px;
-            opacity: 0.35;
+            background-image: radial-gradient(#f472b6 1.2px, transparent 1.2px);
+            background-size: 28px 28px;
+            opacity: 0.25;
         }
 
         .hero {
@@ -94,7 +95,7 @@
             align-items: center;
         }
 
-        .hero h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 0.8rem; color: var(--dark); }
+        .hero h1 { font-size: 3.2rem; line-height: 1.1; margin-bottom: 0.8rem; color: var(--dark); }
 
         .hero .lema { font-size: 1.35rem; font-weight: 600; color: var(--primary); margin-bottom: 0.8rem; }
 
@@ -111,7 +112,7 @@
             place-items: center;
             color: #fff;
             font: 700 3.5rem var(--titulo);
-            box-shadow: 14px 14px 0 var(--rosa-suave);
+            box-shadow: 12px 12px 0 var(--rosa-suave);
         }
 
         .foto img {
@@ -127,32 +128,34 @@
             display: inline-block;
             background: var(--primary);
             color: white;
-            padding: 0.75rem 1.5rem;
+            padding: 0.75rem 1.6rem;
             border-radius: 999px;
             text-decoration: none;
             font-weight: 700;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
             margin: 0 0.5rem 0.5rem 0;
+            box-shadow: 0 4px 12px rgba(190, 24, 93, 0.2);
         }
 
-        .btn:hover { background: var(--primary-dark); }
+        .btn:hover { background: var(--primary-dark); transform: translateY(-2px); }
 
-        .btn-claro { background: white; color: var(--primary); border: 2px solid var(--primary); }
+        .btn-claro { background: white; color: var(--primary); border: 2px solid var(--primary); box-shadow: none; }
         .btn-claro:hover { background: var(--rosa-suave); }
 
         /* Secciones */
         section {
             max-width: 1000px;
             margin: 0 auto;
-            padding: 3rem 1.5rem;
+            padding: 3.5rem 1.5rem;
             scroll-margin-top: 60px;
         }
 
         h2 {
-            font-size: 2rem;
+            font-size: 2.2rem;
             margin-bottom: 1.5rem;
             position: relative;
             display: inline-block;
+            color: var(--dark);
         }
 
         h2::after {
@@ -166,841 +169,88 @@
             background: var(--rosa);
         }
 
-        .intro { font-size: 1.1rem; color: var(--gray); margin-bottom: 1rem; }
+        .intro { font-size: 1.12rem; color: var(--gray); margin-bottom: 1rem; }
 
         /* Tarjetas */
         .skills-grid, .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-card, .project-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 18px;
-            border: 1px solid var(--rosa-suave);
-            border-top: 5px solid var(--rosa);
-        }
-
-        .skill-card h3 { margin-bottom: 0.5rem; color: var(--primary); }
-        .skill-card p { color: var(--gray); }
-
-        .project-card { display: flex; flex-direction: column; justify-content: space-between; }
-        .project-card h3 { margin-bottom: 0.5rem; }
-        .project-card p { color: var(--gray); font-size: 0.95rem; margin-bottom: 1rem; }
-
-        .tags { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
-
-        .tag {
-            background: var(--rosa-suave);
-            color: var(--primary-dark);
-            padding: 0.2rem 0.7rem;
-            border-radius: 999px;
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
-
-        .project-link { text-decoration: none; color: var(--primary); font-weight: 700; }
-        .project-link:hover { text-decoration: underline; }
-
-        .contacto-datos { font-size: 1.1rem; line-height: 2.1; margin: 1rem 0 1.5rem; }
-        .contacto-datos a { color: var(--primary); font-weight: 700; text-decoration: none; }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: var(--rosa-suave);
-            color: var(--primary-dark);
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 760px) {
-            nav { flex-direction: column; gap: 0.5rem; padding: 0.8rem 1rem; }
-            .nav-links { flex-wrap: wrap; justify-content: center; gap: 0.5rem 1rem; }
-            .hero { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
-            .hero p { margin-left: auto; margin-right: auto; }
-            .foto { order: -1; }
-            .hero h1 { font-size: 2.4rem; }
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <div class="logo">Nathalia Gómez</div>
-        <ul class="nav-links">
-            <li><a href="#sobre-mi">Sobre mí</a></li>
-            <li><a href="#habilidades">Habilidades</a></li>
-            <li><a href="#community-manager">Community Manager</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
-
-    <header>
-        <div class="hero">
-            <div>
-                <h1>Nathalia Gómez</h1>
-                <p class="lema">Creo contenido que conecta y código que funciona.</p>
-                <p>Community manager, creadora de contenido y desarrolladora web. Tecnóloga en Análisis y Desarrollo de Software y Normalista Superior.</p>
-                <a href="#community-manager" class="btn">Ver mi contenido</a>
-                <a href="#contacto" class="btn btn-claro">Contactar</a>
-            </div>
-            <div class="foto">
-                NG
-                <img src="foto.jpg" alt="Foto de Nathalia Gómez" onerror="this.remove()">
-            </div>
-        </div>
-    </header>
-
-    <section id="sobre-mi">
-        <h2>Sobre mí</h2>
-        <p class="intro">
-            Tecnóloga en Análisis y Desarrollo de Software y Normalista Superior, con perfil de <strong>liderazgo en soporte técnico, gestión administrativa y coordinación de procesos</strong>. Cuento con formación continua en ciberseguridad, bases de datos y herramientas digitales (SENA, Google, Coursera). Persona organizada, proactiva y orientada a dirigir equipos, optimizar procesos y gestionar información con eficiencia y calidad.
-        </p>
-        <p class="intro">
-            Además de programar, creo contenido digital: manejo un perfil con más de 16.000 seguidores y he colaborado con marcas como Garnier y Rappi.
-        </p>
-    </section>
-
-    <section id="habilidades">
-        <h2>Habilidades Clave</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>Contenido y Redes</h3>
-                <p>Creación de contenido, edición de video, redacción de textos y manejo de Facebook, YouTube y TikTok.</p>
-            </div>
-            <div class="skill-card">
-                <h3>Desarrollo Web</h3>
-                <p>PHP, Laravel, HTML5, CSS3 y maquetación responsiva.</p>
-            </div>
-            <div class="skill-card">
-                <h3>Bases de Datos & Git</h3>
-                <p>Administración de bases de datos y control de versiones con Git/GitHub.</p>
-            </div>
-            <div class="skill-card">
-                <h3>Gestión & Liderazgo</h3>
-                <p>Coordinación de procesos, atención al ciudadano y soporte técnico.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="community-manager">
-        <h2>Community Manager y Contenido Digital</h2>
-        <div class="projects-grid">
-
-            <div class="project-card">
-                <div>
-                    <h3>Creación de contenido</h3>
-                    <p>Perfil con más de 16.000 seguidores. Recetas, blogs diarios, fotos y videos para Facebook, YouTube y TikTok, con mayor retención en YouTube y Facebook.</p>
-                    <div class="tags">
-                        <span class="tag">Facebook</span>
-                        <span class="tag">YouTube</span>
-                        <span class="tag">TikTok</span>
-                    </div>
-                </div>
-                <!-- Cuando tengas el enlace, borra las marcas de comentario de la línea de abajo y pega tu enlace:
-                <a href="PEGA_AQUI_EL_ENLACE" target="_blank" rel="noopener" class="project-link">Ver mi perfil</a>
-                -->
-            </div>
-
-            <div class="project-card">
-                <div>
-                    <h3>Colaboraciones con marcas</h3>
-                    <p>Colaboraciones de contenido con Garnier (skincare) y Rappi, con edición propia de los videos.</p>
-                    <div class="tags">
-                        <span class="tag">Garnier</span>
-                        <span class="tag">Rappi</span>
-                        <span class="tag">Edición de video</span>
-                    </div>
-                </div>
-                <!-- Cuando tengas el enlace, borra las marcas de comentario de la línea de abajo y pega tu enlace:
-                <a href="PEGA_AQUI_EL_ENLACE" target="_blank" rel="noopener" class="project-link">Ver colaboración</a>
-                -->
-            </div>
-
-            <div class="project-card">
-                <div>
-                    <h3>Desayunos sorpresa</h3>
-                    <p>Creación y manejo de la página del negocio en redes sociales, con buena respuesta de la audiencia.</p>
-                    <div class="tags">
-                        <span class="tag">Emprendimiento</span>
-                        <span class="tag">Redes sociales</span>
-                    </div>
-                </div>
-                <!-- Cuando tengas el enlace, borra las marcas de comentario de la línea de abajo y pega tu enlace:
-                <a href="PEGA_AQUI_EL_ENLACE" target="_blank" rel="noopener" class="project-link">Ver la página</a>
-                -->
-            </div>
-
-        </div>
-    </section>
-
-    <section id="proyectos">
-        <h2>Proyectos Destacados</h2>
-        <div class="projects-grid">
-
-            <div class="project-card">
-                <div>
-                    <h3>LARAVEL_EJEMPLO-4VISTAS</h3>
-                    <p>Aplicación web desarrollada con el framework Laravel aplicando lógica de backend y enrutamiento de vistas.</p>
-                    <div class="tags">
-                        <span class="tag">PHP</span>
-                        <span class="tag">Laravel</span>
-                    </div>
-                </div>
-                <a href="https://github.com/NathaloiaGomez/LARAVEL_EJEMPLO-4VISTAS" target="_blank" rel="noopener" class="project-link">Ver código</a>
-            </div>
-
-            <div class="project-card">
-                <div>
-                    <h3>sistema-gomez</h3>
-                    <p>Sistema completo para captura, procesamiento y almacenamiento de datos.</p>
-                    <div class="tags">
-                        <span class="tag">PHP</span>
-                        <span class="tag">Base de Datos</span>
-                    </div>
-                </div>
-                <a href="https://github.com/NathaloiaGomez/sistema-gomez" target="_blank" rel="noopener" class="project-link">Ver código</a>
-            </div>
-
-            <div class="project-card">
-                <div>
-                    <h3>Proyecto_Industrias_LEB</h3>
-                    <p>Proyecto colaborativo enfocado en soluciones de software organizacionales e institucionales.</p>
-                    <div class="tags">
-                        <span class="tag">Software</span>
-                        <span class="tag">Colaborativo</span>
-                    </div>
-                </div>
-                <a href="https://github.com/NathaloiaGomez/Proyecto_Industrias_LEB" target="_blank" rel="noopener" class="project-link">Ver código</a>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <p class="intro">¿Te interesa colaborar o conocer más sobre mi trabajo? ¡Escríbeme o llámame!</p>
-        <div class="contacto-datos">
-            <p>📱 <strong>Teléfono / WhatsApp:</strong> <a href="https://wa.me/573212686122" target="_blank" rel="noopener">+57 321 268 6122</a></p>
-            <p>✉️ <strong>Correo:</strong> <a href="mailto:nathaliagomez915@gmail.com">nathaliagomez915@gmail.com</a></p>
-        </div>
-        <a href="https://github.com/NathaloiaGomez" target="_blank" rel="noopener" class="btn">Visitar mi GitHub</a>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Nathalia Gómez. Todos los derechos reservados.</p>
-    </footer>
-
-</body>
-</html>
-
-
-El jue, 1 de oct. de 2026, 6:04 p. m., nathalia gomez <nathaliagomez915@gmail.com> escribió:
-..................
-
-El jue, 1 oct 2026 a las 17:40, nathalia gomez (<nathaliagomez915@gmail.com>) escribió:
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio | Nathalia Gómez</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #be185d;
-            --primary-dark: #9d174d;
-            --rosa: #f9a8d4;
-            --rosa-suave: #fbcfe8;
-            --blush: #fff1f5;
-            --dark: #4a1d34;
-            --gray: #7a5568;
-            --titulo: 'Fraunces', Georgia, serif;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Nunito', 'Segoe UI', Tahoma, sans-serif;
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            background-color: var(--blush);
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        h1, h2, h3, .logo { font-family: var(--titulo); }
-
-        a:focus-visible { outline: 3px solid var(--primary); outline-offset: 3px; }
-
-        /* Navegación */
-        nav {
-            background: rgba(255, 255, 255, 0.92);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 12px rgba(190, 24, 93, 0.10);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo { font-weight: 700; font-size: 1.25rem; color: var(--primary); }
-
-        .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover { color: var(--primary); }
-
-        /* Portada */
-        header {
-            position: relative;
-            overflow: hidden;
-            padding: 4.5rem 1.5rem;
-            background:
-                radial-gradient(circle at 12% 18%, var(--rosa-suave) 0, transparent 42%),
-                radial-gradient(circle at 88% 85%, var(--rosa) 0, transparent 40%),
-                var(--blush);
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background-image: radial-gradient(#e9a3c4 1.3px, transparent 1.3px);
-            background-size: 24px 24px;
-            opacity: 0.35;
-        }
-
-        .hero {
-            position: relative;
-            max-width: 1000px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1.3fr 1fr;
-            gap: 2.5rem;
-            align-items: center;
-        }
-
-        .hero h1 { font-size: 3rem; line-height: 1.1; margin-bottom: 0.8rem; color: var(--dark); }
-
-        .hero .lema { font-size: 1.35rem; font-weight: 600; color: var(--primary); margin-bottom: 0.8rem; }
-
-        .hero p { color: var(--gray); max-width: 520px; margin-bottom: 1.5rem; }
-
-        .foto {
-            position: relative;
-            width: min(280px, 70vw);
-            aspect-ratio: 4 / 5;
-            margin: 0 auto;
-            border-radius: 999px 999px 28px 28px;
-            background: linear-gradient(160deg, var(--rosa), var(--primary));
-            display: grid;
-            place-items: center;
-            color: #fff;
-            font: 700 3.5rem var(--titulo);
-            box-shadow: 14px 14px 0 var(--rosa-suave);
-        }
-
-        .foto img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: inherit;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 999px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: background 0.3s;
-            margin: 0 0.5rem 0.5rem 0;
-        }
-
-        .btn:hover { background: var(--primary-dark); }
-
-        .btn-claro { background: white; color: var(--primary); border: 2px solid var(--primary); }
-        .btn-claro:hover { background: var(--rosa-suave); }
-
-        /* Secciones */
-        section {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
-            scroll-margin-top: 60px;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 55%;
-            height: 4px;
-            border-radius: 4px;
-            background: var(--rosa);
-        }
-
-        .intro { font-size: 1.1rem; color: var(--gray); margin-bottom: 1rem; }
-
-        /* Tarjetas */
-        .skills-grid, .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-card, .project-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 18px;
-            border: 1px solid var(--rosa-suave);
-            border-top: 5px solid var(--rosa);
-        }
-
-        .skill-card h3 { margin-bottom: 0.5rem; color: var(--primary); }
-        .skill-card p { color: var(--gray); }
-
-        .project-card { display: flex; flex-direction: column; justify-content: space-between; }
-        .project-card h3 { margin-bottom: 0.5rem; }
-        .project-card p { color: var(--gray); font-size: 0.95rem; margin-bottom: 1rem; }
-
-        .tags { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
-
-        .tag {
-            background: var(--rosa-suave);
-            color: var(--primary-dark);
-            padding: 0.2rem 0.7rem;
-            border-radius: 999px;
-            font-size: 0.8rem;
-            font-weight: 700;
-        }
-
-        .project-link { text-decoration: none; color: var(--primary); font-weight: 700; }
-        .project-link:hover { text-decoration: underline; }
-
-        .contacto-datos { font-size: 1.1rem; line-height: 2.1; margin: 1rem 0 1.5rem; }
-        .contacto-datos a { color: var(--primary); font-weight: 700; text-decoration: none; }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: var(--rosa-suave);
-            color: var(--primary-dark);
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 760px) {
-            nav { flex-direction: column; gap: 0.5rem; padding: 0.8rem 1rem; }
-            .nav-links { flex-wrap: wrap; justify-content: center; gap: 0.5rem 1rem; }
-            .hero { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
-            .hero p { margin-left: auto; margin-right: auto; }
-            .foto { order: -1; }
-            .hero h1 { font-size: 2.4rem; }
-        }
-    </style>
-</head>
-<body>
-
-    <nav>
-        <div class="logo">Nathalia Gómez</div>
-        <ul class="nav-links">
-            <li><a href="#sobre-mi">Sobre mí</a></li>
-            <li><a href="#habilidades">Habilidades</a></li>
-            <li><a href="#community-manager">Community Manager</a></li>
-            <li><a href="#proyectos">Proyectos</a></li>
-            <li><a href="#contacto">Contacto</a></li>
-        </ul>
-    </nav>
-
-    <header>
-        <div class="hero">
-            <div>
-                <h1>Nathalia Gómez</h1>
-                <p class="lema">Creo contenido que conecta y código que funciona.</p>
-                <p>Community manager, creadora de contenido y desarrolladora web. Tecnóloga en Análisis y Desarrollo de Software y Normalista Superior.</p>
-                <a href="#community-manager" class="btn">Ver mi contenido</a>
-                <a href="#contacto" class="btn btn-claro">Contactar</a>
-            </div>
-            <div class="foto">
-                NG
-                <img src="foto.jpg" alt="Foto de Nathalia Gómez" onerror="this.remove()">
-            </div>
-        </div>
-    </header>
-
-    <section id="sobre-mi">
-        <h2>Sobre mí</h2>
-        <p class="intro">
-            Tecnóloga en Análisis y Desarrollo de Software y Normalista Superior, con perfil de <strong>liderazgo en soporte técnico, gestión administrativa y coordinación de procesos</strong>. Cuento con formación continua en ciberseguridad, bases de datos y herramientas digitales (SENA, Google, Coursera). Persona organizada, proactiva y orientada a dirigir equipos, optimizar procesos y gestionar información con eficiencia y calidad.
-        </p>
-        <p class="intro">
-            Además de programar, creo contenido digital: manejo un perfil con más de 16.000 seguidores y he colaborado con marcas como Garnier y Rappi.
-        </p>
-    </section>
-
-    <section id="habilidades">
-        <h2>Habilidades Clave</h2>
-        <div class="skills-grid">
-            <div class="skill-card">
-                <h3>Contenido y Redes</h3>
-                <p>Creación de contenido, edición de video, redacción de textos y manejo de Facebook, YouTube y TikTok.</p>
-            </div>
-            <div class="skill-card">
-                <h3>Desarrollo Web</h3>
-                <p>PHP, Laravel, HTML5, CSS3 y maquetación responsiva.</p>
-            </div>
-            <div class="skill-card">
-                <h3>Bases de Datos & Git</h3>
-                <p>Administración de bases de datos y control de versiones con Git/GitHub.</p>
-            </div>
-            <div class="skill-card">
-                <h3>Gestión & Liderazgo</h3>
-                <p>Coordinación de procesos, atención al ciudadano y soporte técnico.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="community-manager">
-        <h2>Community Manager y Contenido Digital</h2>
-        <div class="projects-grid">
-
-            <div class="project-card">
-                <div>
-                    <h3>Creación de contenido</h3>
-                    <p>Perfil con más de 16.000 seguidores. Recetas, blogs diarios, fotos y videos para Facebook, YouTube y TikTok, con mayor retención en YouTube y Facebook.</p>
-                    <div class="tags">
-                        <span class="tag">Facebook</span>
-                        <span class="tag">YouTube</span>
-                        <span class="tag">TikTok</span>
-                    </div>
-                </div>
-                <!-- Cuando tengas el enlace, borra las marcas de comentario de la línea de abajo y pega tu enlace:
-                <a href="PEGA_AQUI_EL_ENLACE" target="_blank" rel="noopener" class="project-link">Ver mi perfil</a>
-                -->
-            </div>
-
-            <div class="project-card">
-                <div>
-                    <h3>Colaboraciones con marcas</h3>
-                    <p>Colaboraciones de contenido con Garnier (skincare) y Rappi, con edición propia de los videos.</p>
-                    <div class="tags">
-                        <span class="tag">Garnier</span>
-                        <span class="tag">Rappi</span>
-                        <span class="tag">Edición de video</span>
-                    </div>
-                </div>
-                <!-- Cuando tengas el enlace, borra las marcas de comentario de la línea de abajo y pega tu enlace:
-                <a href="PEGA_AQUI_EL_ENLACE" target="_blank" rel="noopener" class="project-link">Ver colaboración</a>
-                -->
-            </div>
-
-            <div class="project-card">
-                <div>
-                    <h3>Desayunos sorpresa</h3>
-                    <p>Creación y manejo de la página del negocio en redes sociales, con buena respuesta de la audiencia.</p>
-                    <div class="tags">
-                        <span class="tag">Emprendimiento</span>
-                        <span class="tag">Redes sociales</span>
-                    </div>
-                </div>
-                <!-- Cuando tengas el enlace, borra las marcas de comentario de la línea de abajo y pega tu enlace:
-                <a href="PEGA_AQUI_EL_ENLACE" target="_blank" rel="noopener" class="project-link">Ver la página</a>
-                -->
-            </div>
-
-        </div>
-    </section>
-
-    <section id="proyectos">
-        <h2>Proyectos Destacados</h2>
-        <div class="projects-grid">
-
-            <div class="project-card">
-                <div>
-                    <h3>LARAVEL_EJEMPLO-4VISTAS</h3>
-                    <p>Aplicación web desarrollada con el framework Laravel aplicando lógica de backend y enrutamiento de vistas.</p>
-                    <div class="tags">
-                        <span class="tag">PHP</span>
-                        <span class="tag">Laravel</span>
-                    </div>
-                </div>
-                <a href="https://github.com/NathaloiaGomez/LARAVEL_EJEMPLO-4VISTAS" target="_blank" rel="noopener" class="project-link">Ver código</a>
-            </div>
-
-            <div class="project-card">
-                <div>
-                    <h3>sistema-gomez</h3>
-                    <p>Sistema completo para captura, procesamiento y almacenamiento de datos.</p>
-                    <div class="tags">
-                        <span class="tag">PHP</span>
-                        <span class="tag">Base de Datos</span>
-                    </div>
-                </div>
-                <a href="https://github.com/NathaloiaGomez/sistema-gomez" target="_blank" rel="noopener" class="project-link">Ver código</a>
-            </div>
-
-            <div class="project-card">
-                <div>
-                    <h3>Proyecto_Industrias_LEB</h3>
-                    <p>Proyecto colaborativo enfocado en soluciones de software organizacionales e institucionales.</p>
-                    <div class="tags">
-                        <span class="tag">Software</span>
-                        <span class="tag">Colaborativo</span>
-                    </div>
-                </div>
-                <a href="https://github.com/NathaloiaGomez/Proyecto_Industrias_LEB" target="_blank" rel="noopener" class="project-link">Ver código</a>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <p class="intro">¿Te interesa colaborar o conocer más sobre mi trabajo? ¡Escríbeme o llámame!</p>
-        <div class="contacto-datos">
-            <p>📱 <strong>Teléfono / WhatsApp:</strong> <a href="https://wa.me/573212686122" target="_blank" rel="noopener">+57 321 268 6122</a></p>
-            <p>✉️ <strong>Correo:</strong> <a href="mailto:nathaliagomez915@gmail.com">nathaliagomez915@gmail.com</a></p>
-        </div>
-        <a href="https://github.com/NathaloiaGomez" target="_blank" rel="noopener" class="btn">Visitar mi GitHub</a>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Nathalia Gómez. Todos los derechos reservados.</p>
-    </footer>
-
-</body>
-</html>
-
-
-El jue, 1 de oct. de 2026, 5:36 p. m., nathalia gomez <nathaliagomez915@gmail.com> escribió:
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio | Nathalia Gómez</title>
-    <style>
-        :root {
-            --primary: #2563eb;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --gray: #64748b;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--light);
-            color: var(--dark);
-            line-height: 1.6;
-        }
-
-        /* Navegación */
-        nav {
-            background: white;
-            padding: 1.2rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .logo {
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: var(--primary);
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: var(--dark);
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--primary);
-        }
-
-        /* Hero Header */
-        header {
-            text-align: center;
-            padding: 4rem 1rem;
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            color: white;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        header p {
-            font-size: 1.1rem;
-            color: #94a3b8;
-            max-width: 600px;
-            margin: 0 auto 1.5rem auto;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--primary);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background: #1d4ed8;
-        }
-
-        /* Secciones */
-        section {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 3rem 1.5rem;
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        h2::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 50%;
-            height: 3px;
-            background: var(--primary);
-        }
-
-        /* Habilidades */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
-            border: 1px solid #e2e8f0;
-        }
-
-        .skill-card h3 {
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-
-        /* Proyectos */
-        .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 1.5rem;
         }
 
-        .project-card {
+        .skill-card, .project-card {
             background: white;
-            border-radius: 8px;
-            padding: 1.5rem;
-            border: 1px solid #e2e8f0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            padding: 1.8rem;
+            border-radius: 20px;
+            border: 1px solid var(--rosa-suave);
+            border-top: 5px solid var(--rosa);
+            box-shadow: 0 4px 15px rgba(190, 24, 93, 0.05);
+            transition: transform 0.3s ease;
         }
 
-        .project-card h3 {
-            margin-bottom: 0.5rem;
+        .skill-card:hover, .project-card:hover {
+            transform: translateY(-4px);
         }
 
-        .project-card p {
-            color: var(--gray);
-            font-size: 0.95rem;
+        .skill-card h3 { margin-bottom: 0.5rem; color: var(--primary); }
+        .skill-card p { color: var(--gray); }
+
+        .project-card { display: flex; flex-direction: column; justify-content: space-between; }
+        .project-card h3 { margin-bottom: 0.5rem; color: var(--dark); }
+        .project-card p { color: var(--gray); font-size: 0.95rem; margin-bottom: 1rem; }
+
+        /* Contenedor multimedia para Colaboraciones */
+        .collab-media {
+            width: 100%;
+            height: 180px;
+            border-radius: 12px;
+            overflow: hidden;
             margin-bottom: 1rem;
+            background: var(--rosa-suave);
+            display: grid;
+            place-items: center;
         }
 
-        .tags {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
+        .collab-media img, .collab-media video, .collab-media iframe {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
+
+        .tags { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
 
         .tag {
-            background: #e0e7ff;
-            color: #3730a3;
-            padding: 0.2rem 0.6rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
+            background: var(--rosa-suave);
+            color: var(--primary-dark);
+            padding: 0.25rem 0.8rem;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .project-link { text-decoration: none; color: var(--primary); font-weight: 700; display: inline-flex; align-items: center; gap: 4px; }
+        .project-link:hover { text-decoration: underline; }
+
+        .contacto-datos { font-size: 1.1rem; line-height: 2.1; margin: 1rem 0 1.5rem; }
+        .contacto-datos a { color: var(--primary); font-weight: 700; text-decoration: none; }
+        .contacto-datos a:hover { text-decoration: underline; }
+
+        footer {
+            text-align: center;
+            padding: 2.5rem;
+            background: var(--rosa-suave);
+            color: var(--primary-dark);
+            margin-top: 3rem;
             font-weight: 600;
         }
 
-        .project-link {
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: bold;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background: #f1f5f9;
-            color: var(--gray);
-            margin-top: 2rem;
+        @media (max-width: 760px) {
+            nav { flex-direction: column; gap: 0.8rem; padding: 0.8rem 1rem; }
+            .nav-links { flex-wrap: wrap; justify-content: center; gap: 0.5rem 1rem; }
+            .hero { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
+            .hero p { margin-left: auto; margin-right: auto; }
+            .foto { order: -1; }
+            .hero h1 { font-size: 2.4rem; }
         }
     </style>
 </head>
@@ -1011,27 +261,45 @@ El jue, 1 de oct. de 2026, 5:36 p. m., nathalia gomez <nathaliagomez915@gmail.co
         <ul class="nav-links">
             <li><a href="#sobre-mi">Sobre mí</a></li>
             <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#community-manager">Community Manager</a></li>
             <li><a href="#proyectos">Proyectos</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
     </nav>
 
     <header>
-        <h1>Nathalia Gómez</h1>
-        <p>Tecnóloga en Análisis y Desarrollo de Software & Normalista Superior</p>
-        <a href="#contacto" class="btn">Contactar</a>
+        <div class="hero">
+            <div>
+                <h1>Nathalia Gómez</h1>
+                <p class="lema">Creo contenido que conecta y código que funciona.</p>
+                <p>Community manager, creadora de contenido y desarrolladora web. Tecnóloga en Análisis y Desarrollo de Software y Normalista Superior.</p>
+                <a href="#community-manager" class="btn">Ver mi contenido</a>
+                <a href="#contacto" class="btn btn-claro">Contactar</a>
+            </div>
+            <div class="foto">
+                NG
+                <img src="foto.jpg" alt="Foto de Nathalia Gómez" onerror="this.remove()">
+            </div>
+        </div>
     </header>
 
     <section id="sobre-mi">
         <h2>Sobre mí</h2>
-        <p style="font-size: 1.1rem; color: #475569;">
+        <p class="intro">
             Tecnóloga en Análisis y Desarrollo de Software y Normalista Superior, con perfil de <strong>liderazgo en soporte técnico, gestión administrativa y coordinación de procesos</strong>. Cuento con formación continua en ciberseguridad, bases de datos y herramientas digitales (SENA, Google, Coursera). Persona organizada, proactiva y orientada a dirigir equipos, optimizar procesos y gestionar información con eficiencia y calidad.
+        </p>
+        <p class="intro">
+            Además de programar, creo contenido digital: manejo un perfil con más de 16.000 seguidores y he colaborado con marcas como Garnier y Rappi.
         </p>
     </section>
 
     <section id="habilidades">
         <h2>Habilidades Clave</h2>
         <div class="skills-grid">
+            <div class="skill-card">
+                <h3>Contenido y Redes</h3>
+                <p>Creación de contenido, edición de video, redacción de textos y manejo de Facebook, YouTube y TikTok.</p>
+            </div>
             <div class="skill-card">
                 <h3>Desarrollo Web</h3>
                 <p>PHP, Laravel, HTML5, CSS3 y maquetación responsiva.</p>
@@ -1047,8 +315,70 @@ El jue, 1 de oct. de 2026, 5:36 p. m., nathalia gomez <nathaliagomez915@gmail.co
         </div>
     </section>
 
+    <section id="community-manager">
+        <h2>Community Manager y Contenido Digital</h2>
+        <p class="intro" style="margin-bottom: 2rem;">Aquí puedes ver un vistazo de mis redes, proyectos de contenido y las colaboraciones que realizo con marcas.</p>
+        
+        <div class="projects-grid">
+
+            <!-- Tarjeta 1: Creación de contenido general -->
+            <div class="project-card">
+                <div>
+                    <div class="collab-media">
+                        <!-- Coloca aquí tu foto o video: <img src="tu-foto.jpg" alt="..."> -->
+                        <img src="tu-foto-contenido.jpg" alt="Contenido digital" onerror="this.style.display='none'">
+                    </div>
+                    <h3>Creación de contenido</h3>
+                    <p>Perfil con más de 16.000 seguidores. Recetas, blogs diarios, fotos y videos para Facebook, YouTube y TikTok, con gran retención de audiencia.</p>
+                    <div class="tags">
+                        <span class="tag">Facebook</span>
+                        <span class="tag">YouTube</span>
+                        <span class="tag">TikTok</span>
+                    </div>
+                </div>
+                <a href="PEGA_AQUI_EL_ENLACE" target="_blank" rel="noopener" class="project-link">Ver mi perfil ➔</a>
+            </div>
+
+            <!-- Tarjeta 2: Colaboración con marcas -->
+            <div class="project-card">
+                <div>
+                    <div class="collab-media">
+                        <!-- Coloca aquí tu foto o video: <img src="tu-collab.jpg" alt="..."> -->
+                        <img src="tu-foto-collab.jpg" alt="Colaboración con marcas" onerror="this.style.display='none'">
+                    </div>
+                    <h3>Colaboraciones con marcas</h3>
+                    <p>Colaboraciones de contenido con Garnier (skincare) y Rappi, destacando productos con edición propia y dinámica.</p>
+                    <div class="tags">
+                        <span class="tag">Garnier</span>
+                        <span class="tag">Rappi</span>
+                        <span class="tag">Edición de video</span>
+                    </div>
+                </div>
+                <a href="PEGA_AQUI_EL_ENLACE" target="_blank" rel="noopener" class="project-link">Ver colaboración ➔</a>
+            </div>
+
+            <!-- Tarjeta 3: Desayunos sorpresa -->
+            <div class="project-card">
+                <div>
+                    <div class="collab-media">
+                        <!-- Coloca aquí tu foto o video: <img src="tu-negocio.jpg" alt="..."> -->
+                        <img src="tu-foto-desayunos.jpg" alt="Desayunos sorpresa" onerror="this.style.display='none'">
+                    </div>
+                    <h3>Desayunos sorpresa</h3>
+                    <p>Creación y manejo integral de la página del negocio en redes sociales, logrando excelente interacción y conversión.</p>
+                    <div class="tags">
+                        <span class="tag">Emprendimiento</span>
+                        <span class="tag">Redes sociales</span>
+                    </div>
+                </div>
+                <a href="PEGA_AQUI_EL_ENLACE" target="_blank" rel="noopener" class="project-link">Ver la página ➔</a>
+            </div>
+
+        </div>
+    </section>
+
     <section id="proyectos">
-        <h2>Proyectos Destacados</h2>
+        <h2>Proyectos Destacados (Software)</h2>
         <div class="projects-grid">
 
             <div class="project-card">
@@ -1060,7 +390,7 @@ El jue, 1 de oct. de 2026, 5:36 p. m., nathalia gomez <nathaliagomez915@gmail.co
                         <span class="tag">Laravel</span>
                     </div>
                 </div>
-                <a href="https://github.com/NathaloiaGomez/LARAVEL_EJEMPLO-4VISTAS" target="_blank" class="project-link">Ver Código &rarr;</a>
+                <a href="https://github.com/NathaloiaGomez/LARAVEL_EJEMPLO-4VISTAS" target="_blank" rel="noopener" class="project-link">Ver código ➔</a>
             </div>
 
             <div class="project-card">
@@ -1072,7 +402,7 @@ El jue, 1 de oct. de 2026, 5:36 p. m., nathalia gomez <nathaliagomez915@gmail.co
                         <span class="tag">Base de Datos</span>
                     </div>
                 </div>
-                <a href="https://github.com/NathaloiaGomez/sistema-gomez" target="_blank" class="project-link">Ver Código &rarr;</a>
+                <a href="https://github.com/NathaloiaGomez/sistema-gomez" target="_blank" rel="noopener" class="project-link">Ver código ➔</a>
             </div>
 
             <div class="project-card">
@@ -1084,7 +414,7 @@ El jue, 1 de oct. de 2026, 5:36 p. m., nathalia gomez <nathaliagomez915@gmail.co
                         <span class="tag">Colaborativo</span>
                     </div>
                 </div>
-                <a href="https://github.com/NathaloiaGomez/Proyecto_Industrias_LEB" target="_blank" class="project-link">Ver Código &rarr;</a>
+                <a href="https://github.com/NathaloiaGomez/Proyecto_Industrias_LEB" target="_blank" rel="noopener" class="project-link">Ver código ➔</a>
             </div>
 
         </div>
@@ -1092,14 +422,12 @@ El jue, 1 de oct. de 2026, 5:36 p. m., nathalia gomez <nathaliagomez915@gmail.co
 
     <section id="contacto">
         <h2>Contacto</h2>
-        <p>¿Te interesa colaborar o conocer más sobre mi trabajo? ¡Escríbeme o llámame!</p>
-        <br>
-        <div style="font-size: 1.1rem; line-height: 2;">
-            <p>📱 <strong>Teléfono / WhatsApp:</strong> <a href="https://wa.me/573212686122" target="_blank" style="color: var(--primary); font-weight: bold; text-decoration: none;">+57 300 000 0000</a></p>
-            <p>✉️ <strong>Correo:</strong> <a href="nathaliagomez915@gmail.com" style="color: var(--primary); font-weight: bold; text-decoration: none;">tu-correo@email.com</a></p>
+        <p class="intro">¿Te interesa colaborar o conocer más sobre mi trabajo? ¡Escríbeme o llámame!</p>
+        <div class="contacto-datos">
+            <p>📱 <strong>Teléfono / WhatsApp:</strong> <a href="https://wa.me/573212686122" target="_blank" rel="noopener">+57 321 268 6122</a></p>
+            <p>✉️ <strong>Correo:</strong> <a href="mailto:nathaliagomez915@gmail.com">nathaliagomez915@gmail.com</a></p>
         </div>
-        <br>
-        <a href="https://github.com/NathaloiaGomez" target="_blank" class="btn">Visitar mi GitHub</a>
+        <a href="https://github.com/NathaloiaGomez" target="_blank" rel="noopener" class="btn">Visitar mi GitHub</a>
     </section>
 
     <footer>
