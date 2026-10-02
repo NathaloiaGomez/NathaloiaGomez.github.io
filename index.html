@@ -101,18 +101,33 @@
 
         .hero p { color: var(--gray); max-width: 520px; margin-bottom: 1.5rem; }
 
+        /* Contenedor de foto con borde degradado neón */
         .foto {
             position: relative;
             width: min(280px, 70vw);
             aspect-ratio: 4 / 5;
             margin: 0 auto;
             border-radius: 999px 999px 28px 28px;
-            background: linear-gradient(160deg, var(--rosa), var(--primary));
+            padding: 4px; /* Grosor del borde neón */
+            background: linear-gradient(135deg, #ff007f, #ff758c, #ffeb3b, #00f2fe);
+            background-size: 300% 300%;
+            animation: neonGlow 6s ease infinite;
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.4), 0 0 40px rgba(0, 242, 254, 0.2);
             display: grid;
             place-items: center;
             color: #fff;
             font: 700 3.5rem var(--titulo);
-            box-shadow: 12px 12px 0 var(--rosa-suave);
+        }
+
+        .foto-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            background: var(--blush);
+            overflow: hidden;
+            position: relative;
+            display: grid;
+            place-items: center;
         }
 
         .foto img {
@@ -171,25 +186,50 @@
 
         .intro { font-size: 1.12rem; color: var(--gray); margin-bottom: 1rem; }
 
-        /* Tarjetas */
+        /* Tarjetas con Bordes de Degradado Neón Profesional */
         .skills-grid, .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            gap: 1.8rem;
         }
 
         .skill-card, .project-card {
             background: white;
             padding: 1.8rem;
             border-radius: 20px;
-            border: 1px solid var(--rosa-suave);
-            border-top: 5px solid var(--rosa);
-            box-shadow: 0 4px 15px rgba(190, 24, 93, 0.05);
-            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 25px rgba(80, 21, 51, 0.06);
         }
 
-        .skill-card:hover, .project-card:hover {
-            transform: translateY(-4px);
+        /* Contenedor envolvente para crear el borde degradado neón brillante */
+        .neon-border-wrap {
+            position: relative;
+            border-radius: 22px;
+            padding: 2px; /* Grosor del borde neón */
+            background: linear-gradient(135deg, #ff1493, #ff69b4, #00ffff, #9370db);
+            background-size: 250% 250%;
+            animation: neonGlow 8s ease infinite;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .neon-border-wrap:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(255, 20, 147, 0.4), 0 0 35px rgba(0, 255, 255, 0.25);
+        }
+
+        .neon-border-wrap .skill-card,
+        .neon-border-wrap .project-card {
+            border-radius: 20px;
+            height: 100%;
+            box-shadow: none;
+        }
+
+        @keyframes neonGlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         .skill-card h3 { margin-bottom: 0.5rem; color: var(--primary); }
@@ -199,10 +239,10 @@
         .project-card h3 { margin-bottom: 0.5rem; color: var(--dark); }
         .project-card p { color: var(--gray); font-size: 0.95rem; margin-bottom: 1rem; }
 
-        /* Contenedor multimedia para Colaboraciones */
+        /* Contenedor multimedia para Colaboraciones con imágenes reales */
         .collab-media {
             width: 100%;
-            height: 180px;
+            height: 190px;
             border-radius: 12px;
             overflow: hidden;
             margin-bottom: 1rem;
@@ -277,8 +317,10 @@
                 <a href="#contacto" class="btn btn-claro">Contactar</a>
             </div>
             <div class="foto">
-                NG
-                <img src="foto.jpg" alt="Foto de Nathalia Gómez" onerror="this.remove()">
+                <div class="foto-inner">
+                    NG
+                    <img src="Imágenes Carrusel/Garnier.jpeg" alt="Foto de Nathalia Gómez" onerror="this.remove()">
+                </div>
             </div>
         </div>
     </header>
@@ -296,21 +338,29 @@
     <section id="habilidades">
         <h2>Habilidades Clave</h2>
         <div class="skills-grid">
-            <div class="skill-card">
-                <h3>Contenido y Redes</h3>
-                <p>Creación de contenido, edición de video, redacción de textos y manejo de Facebook, YouTube y TikTok.</p>
+            <div class="neon-border-wrap">
+                <div class="skill-card">
+                    <h3>Contenido y Redes</h3>
+                    <p>Creación de contenido, edición de video, redacción de textos y manejo de Facebook, YouTube y TikTok.</p>
+                </div>
             </div>
-            <div class="skill-card">
-                <h3>Desarrollo Web</h3>
-                <p>PHP, Laravel, HTML5, CSS3 y maquetación responsiva.</p>
+            <div class="neon-border-wrap">
+                <div class="skill-card">
+                    <h3>Desarrollo Web</h3>
+                    <p>PHP, Laravel, HTML5, CSS3 y maquetación responsiva.</p>
+                </div>
             </div>
-            <div class="skill-card">
-                <h3>Bases de Datos & Git</h3>
-                <p>Administración de bases de datos y control de versiones con Git/GitHub.</p>
+            <div class="neon-border-wrap">
+                <div class="skill-card">
+                    <h3>Bases de Datos & Git</h3>
+                    <p>Administración de bases de datos y control de versiones con Git/GitHub.</p>
+                </div>
             </div>
-            <div class="skill-card">
-                <h3>Gestión & Liderazgo</h3>
-                <p>Coordinación de procesos, atención al ciudadano y soporte técnico.</p>
+            <div class="neon-border-wrap">
+                <div class="skill-card">
+                    <h3>Gestión & Liderazgo</h3>
+                    <p>Coordinación de procesos, atención al ciudadano y soporte técnico.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -322,56 +372,59 @@
         <div class="projects-grid">
 
             <!-- Tarjeta 1: Creación de contenido general -->
-            <div class="project-card">
-                <div>
-                    <div class="collab-media">
-                        <!-- Coloca aquí tu foto o video: <img src="tu-foto.jpg" alt="..."> -->
-                        <img src="tu-foto-contenido.jpg" alt="Contenido digital" onerror="this.style.display='none'">
+            <div class="neon-border-wrap">
+                <div class="project-card">
+                    <div>
+                        <div class="collab-media">
+                            <img src="Imágenes Carrusel/contenido-1.jpeg" alt="Contenido digital" onerror="this.style.display='none'">
+                        </div>
+                        <h3>Creación de contenido</h3>
+                        <p>Perfil con más de 16.000 seguidores. Recetas, blogs diarios, fotos y videos para Facebook, YouTube y TikTok, con gran retención de audiencia.</p>
+                        <div class="tags">
+                            <span class="tag">Facebook</span>
+                            <span class="tag">YouTube</span>
+                            <span class="tag">TikTok</span>
+                        </div>
                     </div>
-                    <h3>Creación de contenido</h3>
-                    <p>Perfil con más de 16.000 seguidores. Recetas, blogs diarios, fotos y videos para Facebook, YouTube y TikTok, con gran retención de audiencia.</p>
-                    <div class="tags">
-                        <span class="tag">Facebook</span>
-                        <span class="tag">YouTube</span>
-                        <span class="tag">TikTok</span>
-                    </div>
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener" class="project-link">Ver mi perfil ➔</a>
                 </div>
-                <a href="PEGA_AQUI_EL_ENLACE" target="_blank" rel="noopener" class="project-link">Ver mi perfil ➔</a>
             </div>
 
             <!-- Tarjeta 2: Colaboración con marcas -->
-            <div class="project-card">
-                <div>
-                    <div class="collab-media">
-                        <!-- Coloca aquí tu foto o video: <img src="tu-collab.jpg" alt="..."> -->
-                        <img src="tu-foto-collab.jpg" alt="Colaboración con marcas" onerror="this.style.display='none'">
+            <div class="neon-border-wrap">
+                <div class="project-card">
+                    <div>
+                        <div class="collab-media">
+                            <img src="Imágenes Carrusel/Garnier2.jpeg" alt="Colaboración con marcas" onerror="this.style.display='none'">
+                        </div>
+                        <h3>Colaboraciones con marcas</h3>
+                        <p>Colaboraciones de contenido con Garnier (skincare) y Rappi, destacando productos con edición propia y dinámica.</p>
+                        <div class="tags">
+                            <span class="tag">Garnier</span>
+                            <span class="tag">Rappi</span>
+                            <span class="tag">Edición de video</span>
+                        </div>
                     </div>
-                    <h3>Colaboraciones con marcas</h3>
-                    <p>Colaboraciones de contenido con Garnier (skincare) y Rappi, destacando productos con edición propia y dinámica.</p>
-                    <div class="tags">
-                        <span class="tag">Garnier</span>
-                        <span class="tag">Rappi</span>
-                        <span class="tag">Edición de video</span>
-                    </div>
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener" class="project-link">Ver colaboración ➔</a>
                 </div>
-                <a href="PEGA_AQUI_EL_ENLACE" target="_blank" rel="noopener" class="project-link">Ver colaboración ➔</a>
             </div>
 
-            <!-- Tarjeta 3: Desayunos sorpresa -->
-            <div class="project-card">
-                <div>
-                    <div class="collab-media">
-                        <!-- Coloca aquí tu foto o video: <img src="tu-negocio.jpg" alt="..."> -->
-                        <img src="tu-foto-desayunos.jpg" alt="Desayunos sorpresa" onerror="this.style.display='none'">
+            <!-- Tarjeta 3: Video de Rappi -->
+            <div class="neon-border-wrap">
+                <div class="project-card">
+                    <div>
+                        <div class="collab-media">
+                            <video src="Imágenes Carrusel/rappi.mp4" controls muted></video>
+                        </div>
+                        <h3>Campaña Rappi</h3>
+                        <p>Video promocional y dinámicas interactivas orientadas a conectar de forma auténtica con la comunidad.</p>
+                        <div class="tags">
+                            <span class="tag">Rappi</span>
+                            <span class="tag">Video MP4</span>
+                        </div>
                     </div>
-                    <h3>Desayunos sorpresa</h3>
-                    <p>Creación y manejo integral de la página del negocio en redes sociales, logrando excelente interacción y conversión.</p>
-                    <div class="tags">
-                        <span class="tag">Emprendimiento</span>
-                        <span class="tag">Redes sociales</span>
-                    </div>
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener" class="project-link">Ver video ➔</a>
                 </div>
-                <a href="PEGA_AQUI_EL_ENLACE" target="_blank" rel="noopener" class="project-link">Ver la página ➔</a>
             </div>
 
         </div>
@@ -381,40 +434,46 @@
         <h2>Proyectos Destacados (Software)</h2>
         <div class="projects-grid">
 
-            <div class="project-card">
-                <div>
-                    <h3>LARAVEL_EJEMPLO-4VISTAS</h3>
-                    <p>Aplicación web desarrollada con el framework Laravel aplicando lógica de backend y enrutamiento de vistas.</p>
-                    <div class="tags">
-                        <span class="tag">PHP</span>
-                        <span class="tag">Laravel</span>
+            <div class="neon-border-wrap">
+                <div class="project-card">
+                    <div>
+                        <h3>LARAVEL_EJEMPLO-4VISTAS</h3>
+                        <p>Aplicación web desarrollada con el framework Laravel aplicando lógica de backend y enrutamiento de vistas.</p>
+                        <div class="tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">Laravel</span>
+                        </div>
                     </div>
+                    <a href="https://github.com/NathaloiaGomez/LARAVEL_EJEMPLO-4VISTAS" target="_blank" rel="noopener" class="project-link">Ver código ➔</a>
                 </div>
-                <a href="https://github.com/NathaloiaGomez/LARAVEL_EJEMPLO-4VISTAS" target="_blank" rel="noopener" class="project-link">Ver código ➔</a>
             </div>
 
-            <div class="project-card">
-                <div>
-                    <h3>sistema-gomez</h3>
-                    <p>Sistema completo para captura, procesamiento y almacenamiento de datos.</p>
-                    <div class="tags">
-                        <span class="tag">PHP</span>
-                        <span class="tag">Base de Datos</span>
+            <div class="neon-border-wrap">
+                <div class="project-card">
+                    <div>
+                        <h3>sistema-gomez</h3>
+                        <p>Sistema completo para captura, procesamiento y almacenamiento de datos.</p>
+                        <div class="tags">
+                            <span class="tag">PHP</span>
+                            <span class="tag">Base de Datos</span>
+                        </div>
                     </div>
+                    <a href="https://github.com/NathaloiaGomez/sistema-gomez" target="_blank" rel="noopener" class="project-link">Ver código ➔</a>
                 </div>
-                <a href="https://github.com/NathaloiaGomez/sistema-gomez" target="_blank" rel="noopener" class="project-link">Ver código ➔</a>
             </div>
 
-            <div class="project-card">
-                <div>
-                    <h3>Proyecto_Industrias_LEB</h3>
-                    <p>Proyecto colaborativo enfocado en soluciones de software organizacionales e institucionales.</p>
-                    <div class="tags">
-                        <span class="tag">Software</span>
-                        <span class="tag">Colaborativo</span>
+            <div class="neon-border-wrap">
+                <div class="project-card">
+                    <div>
+                        <h3>Proyecto_Industrias_LEB</h3>
+                        <p>Proyecto colaborativo enfocado en soluciones de software organizacionales e institucionales.</p>
+                        <div class="tags">
+                            <span class="tag">Software</span>
+                            <span class="tag">Colaborativo</span>
+                        </div>
                     </div>
+                    <a href="https://github.com/NathaloiaGomez/Proyecto_Industrias_LEB" target="_blank" rel="noopener" class="project-link">Ver código ➔</a>
                 </div>
-                <a href="https://github.com/NathaloiaGomez/Proyecto_Industrias_LEB" target="_blank" rel="noopener" class="project-link">Ver código ➔</a>
             </div>
 
         </div>
