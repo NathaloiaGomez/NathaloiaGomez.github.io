@@ -101,18 +101,18 @@
 
         .hero p { color: var(--gray); max-width: 520px; margin-bottom: 1.5rem; }
 
-        /* Contenedor de foto con borde degradado neón */
+        /* Foto de perfil con degradado neón */
         .foto {
             position: relative;
             width: min(280px, 70vw);
             aspect-ratio: 4 / 5;
             margin: 0 auto;
             border-radius: 999px 999px 28px 28px;
-            padding: 4px; /* Grosor del borde neón */
+            padding: 4px;
             background: linear-gradient(135deg, #ff007f, #ff758c, #ffeb3b, #00f2fe);
             background-size: 300% 300%;
             animation: neonGlow 6s ease infinite;
-            box-shadow: 0 0 20px rgba(255, 0, 127, 0.4), 0 0 40px rgba(0, 242, 254, 0.2);
+            box-shadow: 0 0 20px rgba(255, 0, 127, 0.4);
             display: grid;
             place-items: center;
             color: #fff;
@@ -186,7 +186,7 @@
 
         .intro { font-size: 1.12rem; color: var(--gray); margin-bottom: 1rem; }
 
-        /* Tarjetas con Bordes de Degradado Neón Profesional */
+        /* Marcos con Bordes de Degradado Neón */
         .skills-grid, .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -199,15 +199,13 @@
             border-radius: 20px;
             position: relative;
             z-index: 1;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 8px 25px rgba(80, 21, 51, 0.06);
+            height: 100%;
         }
 
-        /* Contenedor envolvente para crear el borde degradado neón brillante */
         .neon-border-wrap {
             position: relative;
             border-radius: 22px;
-            padding: 2px; /* Grosor del borde neón */
+            padding: 3px;
             background: linear-gradient(135deg, #ff1493, #ff69b4, #00ffff, #9370db);
             background-size: 250% 250%;
             animation: neonGlow 8s ease infinite;
@@ -215,15 +213,8 @@
         }
 
         .neon-border-wrap:hover {
-            transform: translateY(-5px);
+            transform: translateY(-4px);
             box-shadow: 0 0 25px rgba(255, 20, 147, 0.4), 0 0 35px rgba(0, 255, 255, 0.25);
-        }
-
-        .neon-border-wrap .skill-card,
-        .neon-border-wrap .project-card {
-            border-radius: 20px;
-            height: 100%;
-            box-shadow: none;
         }
 
         @keyframes neonGlow {
@@ -232,30 +223,69 @@
             100% { background-position: 0% 50%; }
         }
 
-        .skill-card h3 { margin-bottom: 0.5rem; color: var(--primary); }
-        .skill-card p { color: var(--gray); }
-
-        .project-card { display: flex; flex-direction: column; justify-content: space-between; }
-        .project-card h3 { margin-bottom: 0.5rem; color: var(--dark); }
-        .project-card p { color: var(--gray); font-size: 0.95rem; margin-bottom: 1rem; }
-
-        /* Contenedor multimedia para Colaboraciones con imágenes reales */
-        .collab-media {
+        /* --- CARRUSEL PROFESIONAL DE MULTIMEDIA --- */
+        .carrusel-container {
+            position: relative;
             width: 100%;
-            height: 190px;
-            border-radius: 12px;
+            border-radius: 14px;
             overflow: hidden;
-            margin-bottom: 1rem;
-            background: var(--rosa-suave);
-            display: grid;
-            place-items: center;
+            background: #000;
+            margin-bottom: 1.2rem;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
         }
 
-        .collab-media img, .collab-media video, .collab-media iframe {
+        .carrusel-track {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* Firefox */
+        }
+
+        .carrusel-track::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
+
+        .carrusel-slide {
+            min-width: 100%;
+            height: 280px;
+            scroll-snap-align: start;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #111;
+        }
+
+        .carrusel-slide img, 
+        .carrusel-slide video {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain; /* Muestra la imagen o video completo sin recortarlo */
+            background: #000;
         }
+
+        /* Botones de navegación del carrusel */
+        .carrusel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(190, 24, 93, 0.8);
+            color: white;
+            border: none;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: grid;
+            place-items: center;
+            z-index: 10;
+            transition: background 0.3s;
+        }
+
+        .carrusel-btn:hover { background: var(--primary); }
+        .carrusel-btn.prev { left: 10px; }
+        .carrusel-btn.next { right: 10px; }
 
         .tags { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
 
@@ -367,63 +397,50 @@
 
     <section id="community-manager">
         <h2>Community Manager y Contenido Digital</h2>
-        <p class="intro" style="margin-bottom: 2rem;">Aquí puedes ver un vistazo de mis redes, proyectos de contenido y las colaboraciones que realizo con marcas.</p>
+        <p class="intro" style="margin-bottom: 2rem;">Explora el contenido de mis redes, campañas con marcas y videos interactivos desplazando el carrusel.</p>
         
         <div class="projects-grid">
 
-            <!-- Tarjeta 1: Creación de contenido general -->
-            <div class="neon-border-wrap">
-                <div class="project-card">
-                    <div>
-                        <div class="collab-media">
-                            <img src="Imágenes Carrusel/contenido-1.jpeg" alt="Contenido digital" onerror="this.style.display='none'">
-                        </div>
-                        <h3>Creación de contenido</h3>
-                        <p>Perfil con más de 16.000 seguidores. Recetas, blogs diarios, fotos y videos para Facebook, YouTube y TikTok, con gran retención de audiencia.</p>
-                        <div class="tags">
-                            <span class="tag">Facebook</span>
-                            <span class="tag">YouTube</span>
-                            <span class="tag">TikTok</span>
+            <!-- Tarjeta con Carrusel de Imágenes y Video -->
+            <div class="neon-border-wrap" style="grid-column: 1 / -1;">
+                <div class="project-card" style="display: block;">
+                    
+                    <!-- Carrusel Interactivo -->
+                    <div class="carrusel-container" id="carruselMultimedia">
+                        <button class="carrusel-btn prev" onclick="moverCarrusel('carruselMultimedia', -1)">❮</button>
+                        <button class="carrusel-btn next" onclick="moverCarrusel('carruselMultimedia', 1)">❯</button>
+                        
+                        <div class="carrusel-track">
+                            <div class="carrusel-slide">
+                                <img src="Imágenes Carrusel/Garnier.jpeg" alt="Garnier">
+                            </div>
+                            <div class="carrusel-slide">
+                                <img src="Imágenes Carrusel/Garnier2.jpeg" alt="Garnier 2">
+                            </div>
+                            <div class="carrusel-slide">
+                                <img src="Imágenes Carrusel/contenido-1.jpeg" alt="Contenido 1">
+                            </div>
+                            <div class="carrusel-slide">
+                                <img src="Imágenes Carrusel/contenido-2.jpeg" alt="Contenido 2">
+                            </div>
+                            <div class="carrusel-slide">
+                                <img src="Imágenes Carrusel/contenido-3.jpeg" alt="Contenido 3">
+                            </div>
+                            <div class="carrusel-slide">
+                                <video src="Imágenes Carrusel/rappi.mp4" controls preload="metadata"></video>
+                            </div>
                         </div>
                     </div>
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener" class="project-link">Ver mi perfil ➔</a>
-                </div>
-            </div>
 
-            <!-- Tarjeta 2: Colaboración con marcas -->
-            <div class="neon-border-wrap">
-                <div class="project-card">
-                    <div>
-                        <div class="collab-media">
-                            <img src="Imágenes Carrusel/Garnier2.jpeg" alt="Colaboración con marcas" onerror="this.style.display='none'">
-                        </div>
-                        <h3>Colaboraciones con marcas</h3>
-                        <p>Colaboraciones de contenido con Garnier (skincare) y Rappi, destacando productos con edición propia y dinámica.</p>
-                        <div class="tags">
-                            <span class="tag">Garnier</span>
-                            <span class="tag">Rappi</span>
-                            <span class="tag">Edición de video</span>
-                        </div>
+                    <h3 style="margin-top: 1rem;">Galería Interactiva de Campañas y Contenido</h3>
+                    <p>Desliza las flechas para ver todas mis fotografías oficiales de marcas y reproducir el video de la campaña de Rappi directamente con sus controles de audio y reproducción.</p>
+                    <div class="tags">
+                        <span class="tag">Garnier</span>
+                        <span class="tag">Rappi</span>
+                        <span class="tag">Redes Sociales</span>
+                        <span class="tag">Video MP4</span>
                     </div>
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener" class="project-link">Ver colaboración ➔</a>
-                </div>
-            </div>
-
-            <!-- Tarjeta 3: Video de Rappi -->
-            <div class="neon-border-wrap">
-                <div class="project-card">
-                    <div>
-                        <div class="collab-media">
-                            <video src="Imágenes Carrusel/rappi.mp4" controls muted></video>
-                        </div>
-                        <h3>Campaña Rappi</h3>
-                        <p>Video promocional y dinámicas interactivas orientadas a conectar de forma auténtica con la comunidad.</p>
-                        <div class="tags">
-                            <span class="tag">Rappi</span>
-                            <span class="tag">Video MP4</span>
-                        </div>
-                    </div>
-                    <a href="https://www.facebook.com" target="_blank" rel="noopener" class="project-link">Ver video ➔</a>
+                    <a href="https://www.facebook.com" target="_blank" rel="noopener" class="project-link">Ver mis redes sociales ➔</a>
                 </div>
             </div>
 
@@ -492,6 +509,15 @@
     <footer>
         <p>&copy; 2026 Nathalia Gómez. Todos los derechos reservados.</p>
     </footer>
+
+    <!-- Script para mover el carrusel con los botones -->
+    <script>
+        function moverCarrusel(id, direccion) {
+            const contenedor = document.querySelector(`#${id} .carrusel-track`);
+            const anchoSlide = contenedor.clientWidth;
+            contenedor.scrollBy({ left: anchoSlide * direccion, behavior: 'smooth' });
+        }
+    </script>
 
 </body>
 </html>
