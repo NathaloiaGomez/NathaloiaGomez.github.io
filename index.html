@@ -101,7 +101,7 @@
 
         .hero p { color: var(--gray); max-width: 520px; margin-bottom: 1.5rem; }
 
-        /* Foto de perfil con degradado rosado/neón */
+        /* Foto de perfil con degradado rosado */
         .foto {
             position: relative;
             width: min(280px, 70vw);
@@ -109,7 +109,7 @@
             margin: 0 auto;
             border-radius: 999px 999px 28px 28px;
             padding: 4px;
-            background: linear-gradient(135deg, #ff1493, #ff758c, #f472b6, #ffb6c1);
+            background: linear-gradient(135deg, #ff1493, #f472b6, #ffb6c1, #db2777);
             background-size: 300% 300%;
             animation: neonGlow 6s ease infinite;
             box-shadow: 0 0 20px rgba(255, 20, 147, 0.4);
@@ -186,7 +186,6 @@
 
         .intro { font-size: 1.12rem; color: var(--gray); margin-bottom: 1rem; }
 
-        /* Marcos con Bordes de Degradado Rosado */
         .skills-grid, .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -206,7 +205,7 @@
             position: relative;
             border-radius: 22px;
             padding: 3px;
-            background: linear-gradient(135deg, #ff1493, #ff69b4, #f472b6, #db2777);
+            background: linear-gradient(135deg, #ff1493, #f472b6, #fb7185, #db2777);
             background-size: 250% 250%;
             animation: neonGlow 8s ease infinite;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -223,7 +222,7 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* --- CARRUSEL PROFESIONAL DE MULTIMEDIA AMPLIABLE --- */
+        /* --- CARRUSEL CORREGIDO Y FLUIDO --- */
         .carrusel-container {
             position: relative;
             width: 100%;
@@ -231,7 +230,7 @@
             overflow: hidden;
             background: #000;
             margin-bottom: 1.2rem;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+            border: 2px solid var(--rosa);
         }
 
         .carrusel-track {
@@ -239,16 +238,18 @@
             overflow-x: auto;
             scroll-snap-type: x mandatory;
             scroll-behavior: smooth;
-            scrollbar-width: none; /* Firefox */
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
         }
 
         .carrusel-track::-webkit-scrollbar {
-            display: none; /* Chrome/Safari */
+            display: none;
         }
 
         .carrusel-slide {
-            min-width: 100%;
-            height: 320px;
+            flex: 0 0 100%;
+            width: 100%;
+            height: 340px;
             scroll-snap-align: start;
             display: flex;
             align-items: center;
@@ -264,28 +265,27 @@
             background: #000;
         }
 
-        /* Botones de navegación del carrusel */
         .carrusel-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(190, 24, 93, 0.8);
+            background: rgba(190, 24, 93, 0.85);
             color: white;
             border: none;
-            width: 38px;
-            height: 38px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             cursor: pointer;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             display: grid;
             place-items: center;
             z-index: 10;
-            transition: background 0.3s;
+            transition: background 0.3s, transform 0.2s;
         }
 
-        .carrusel-btn:hover { background: var(--primary); }
-        .carrusel-btn.prev { left: 10px; }
-        .carrusel-btn.next { right: 10px; }
+        .carrusel-btn:hover { background: var(--primary); transform: translateY(-50%) scale(1.1); }
+        .carrusel-btn.prev { left: 12px; }
+        .carrusel-btn.next { right: 12px; }
 
         .tags { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
 
@@ -321,6 +321,7 @@
             .hero p { margin-left: auto; margin-right: auto; }
             .foto { order: -1; }
             .hero h1 { font-size: 2.4rem; }
+            .carrusel-slide { height: 260px; }
         }
     </style>
 </head>
@@ -348,8 +349,7 @@
             </div>
             <div class="foto">
                 <div class="foto-inner">
-                    NG
-                    <img src="imagenes/Garnier.jpeg" alt="Foto de Nathalia Gómez" onerror="this.remove()">
+                    <img src="imágenes/Imagenes/Perfil fb Natha.png" alt="Foto de Nathalia Gómez" onerror="this.remove()">
                 </div>
             </div>
         </div>
@@ -400,51 +400,32 @@
         <p class="intro" style="margin-bottom: 2rem;">Explora el contenido de mis redes, campañas con marcas y videos interactivos desplazando el carrusel.</p>
         
         <div class="projects-grid">
-
-            <!-- Tarjeta con Carrusel Ampliable de Multimedia -->
             <div class="neon-border-wrap" style="grid-column: 1 / -1;">
                 <div class="project-card" style="display: block;">
                     
-                    <!-- Carrusel Interactivo -->
                     <div class="carrusel-container" id="carruselMultimedia">
                         <button class="carrusel-btn prev" onclick="moverCarrusel('carruselMultimedia', -1)">❮</button>
                         <button class="carrusel-btn next" onclick="moverCarrusel('carruselMultimedia', 1)">❯</button>
                         
                         <div class="carrusel-track">
-                            <!-- ======================================================== -->
-                            <!-- INSTRUCCIONES PARA AGREGAR FOTOS O VIDEOS ILIMITADOS:    -->
-                            <!-- Copia y pega un bloque <div class="carrusel-slide">...   -->
-                            <!-- abajo para cada nueva foto o video que necesites.        -->
-                            <!-- ======================================================== -->
-
                             <div class="carrusel-slide">
-                                <img src="imagenes/Garnier.jpeg" alt="Garnier">
+                                <img src="imágenes/Imagenes/Garnier.jpeg" alt="Garnier" loading="lazy">
                             </div>
                             <div class="carrusel-slide">
-                                <img src="imagenes/Garnier2.jpeg" alt="Garnier 2">
+                                <img src="imágenes/Imagenes/Garnier2.jpeg" alt="Garnier 2" loading="lazy">
                             </div>
                             <div class="carrusel-slide">
-                                <img src="imagenes/contenido-1.jpeg" alt="Contenido 1">
+                                <img src="imágenes/Imagenes/contenido-1.jpeg" alt="Contenido 1" loading="lazy">
                             </div>
                             <div class="carrusel-slide">
-                                <img src="imagenes/contenido-2.jpeg" alt="Contenido 2">
+                                <img src="imágenes/Imagenes/contenido-2.jpeg" alt="Contenido 2" loading="lazy">
                             </div>
                             <div class="carrusel-slide">
-                                <img src="imagenes/contenido-3.jpeg" alt="Contenido 3">
+                                <img src="imágenes/Imagenes/contenido-3.jpeg" alt="Contenido 3" loading="lazy">
                             </div>
                             <div class="carrusel-slide">
-                                <video src="imagenes/rappi.mp4" controls preload="metadata"></video>
+                                <video src="imágenes/Imagenes/rappi.mp4" controls preload="metadata"></video>
                             </div>
-                            <!-- Ejemplo para añadir un NUEVO VIDEO:
-                            <div class="carrusel-slide">
-                                <video src="imagenes/tu-nuevo-video.mp4" controls preload="metadata"></video>
-                            </div>
-                            -->
-                            <!-- Ejemplo para añadir una NUEVA FOTO:
-                            <div class="carrusel-slide">
-                                <img src="imagenes/tu-nueva-foto.jpeg" alt="Nueva Foto">
-                            </div>
-                            -->
                         </div>
                     </div>
 
@@ -459,14 +440,12 @@
                     <a href="https://www.facebook.com" target="_blank" rel="noopener" class="project-link">Ver mis redes sociales ➔</a>
                 </div>
             </div>
-
         </div>
     </section>
 
     <section id="proyectos">
         <h2>Proyectos Destacados (Software)</h2>
         <div class="projects-grid">
-
             <div class="neon-border-wrap">
                 <div class="project-card">
                     <div>
@@ -508,7 +487,6 @@
                     <a href="https://github.com/NathaloiaGomez/Proyecto_Industrias_LEB" target="_blank" rel="noopener" class="project-link">Ver código ➔</a>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -526,11 +504,14 @@
         <p>&copy; 2026 Nathalia Gómez. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Script para mover el carrusel con los botones -->
     <script>
         function moverCarrusel(id, direccion) {
             const contenedor = document.querySelector(`#${id} .carrusel-track`);
-            const anchoSlide = contenedor.clientWidth;
+            const primerSlide = contenedor.querySelector('.carrusel-slide');
+            if (!primerSlide) return;
+            
+            // Calcula de forma precisa el ancho de cada elemento deslizable incluyendo márgenes
+            const anchoSlide = primerSlide.offsetWidth;
             contenedor.scrollBy({ left: anchoSlide * direccion, behavior: 'smooth' });
         }
     </script>
