@@ -222,13 +222,13 @@
             100% { background-position: 0% 50%; }
         }
 
-        /* --- CARRUSEL CORREGIDO Y FLUIDO --- */
+        /* --- CARRUSEL CORREGIDO --- */
         .carrusel-container {
             position: relative;
             width: 100%;
             border-radius: 14px;
             overflow: hidden;
-            background: #000;
+            background: #fff;
             margin-bottom: 1.2rem;
             border: 2px solid var(--rosa);
         }
@@ -249,12 +249,13 @@
         .carrusel-slide {
             flex: 0 0 100%;
             width: 100%;
-            height: 340px;
+            height: 350px;
             scroll-snap-align: start;
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #111;
+            background: #fff1f5;
+            position: relative;
         }
 
         .carrusel-slide img, 
@@ -262,14 +263,23 @@
             width: 100%;
             height: 100%;
             object-fit: contain; 
-            background: #000;
+            background: #fff1f5;
+        }
+
+        /* Aviso visual si falta algún archivo multimedia */
+        .error-archivo {
+            padding: 1rem;
+            text-align: center;
+            color: var(--primary-dark);
+            font-size: 0.95rem;
+            font-weight: 600;
         }
 
         .carrusel-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            background: rgba(190, 24, 93, 0.85);
+            background: rgba(190, 24, 93, 0.9);
             color: white;
             border: none;
             width: 40px;
@@ -349,7 +359,7 @@
             </div>
             <div class="foto">
                 <div class="foto-inner">
-                    <img src="imágenes/Imagenes/Perfil fb Natha.png" alt="Foto de Nathalia Gómez" onerror="this.remove()">
+                    <img src="imagenes/Imagenes/Perfil fb Natha.png" alt="Foto de Nathalia Gómez" onerror="this.style.display='none'">
                 </div>
             </div>
         </div>
@@ -409,22 +419,22 @@
                         
                         <div class="carrusel-track">
                             <div class="carrusel-slide">
-                                <img src="imágenes/Imagenes/Garnier.jpeg" alt="Garnier" loading="lazy">
+                                <img src="imagenes/Imagenes/Garnier.jpeg" alt="Garnier" onerror="this.parentElement.innerHTML='<div class=\'error-archivo\'>⚠️ No se encontró la imagen: Garnier.jpeg<br><small>Verifica que la carpeta se llame <b>imagenes</b> (sin tilde) y esté al lado de index.html</small></div>'">
                             </div>
                             <div class="carrusel-slide">
-                                <img src="imágenes/Imagenes/Garnier2.jpeg" alt="Garnier 2" loading="lazy">
+                                <img src="imagenes/Imagenes/Garnier2.jpeg" alt="Garnier 2" onerror="this.parentElement.innerHTML='<div class=\'error-archivo\'>⚠️ No se encontró la imagen: Garnier2.jpeg</div>'">
                             </div>
                             <div class="carrusel-slide">
-                                <img src="imágenes/Imagenes/contenido-1.jpeg" alt="Contenido 1" loading="lazy">
+                                <img src="imagenes/Imagenes/contenido-1.jpeg" alt="Contenido 1" onerror="this.parentElement.innerHTML='<div class=\'error-archivo\'>⚠️️ No se encontró la imagen: contenido-1.jpeg</div>'">
                             </div>
                             <div class="carrusel-slide">
-                                <img src="imágenes/Imagenes/contenido-2.jpeg" alt="Contenido 2" loading="lazy">
+                                <img src="imagenes/Imagenes/contenido-2.jpeg" alt="Contenido 2" onerror="this.parentElement.innerHTML='<div class=\'error-archivo\'>⚠️ No se encontró la imagen: contenido-2.jpeg</div>'">
                             </div>
                             <div class="carrusel-slide">
-                                <img src="imágenes/Imagenes/contenido-3.jpeg" alt="Contenido 3" loading="lazy">
+                                <img src="imagenes/Imagenes/contenido-3.jpeg" alt="Contenido 3" onerror="this.parentElement.innerHTML='<div class=\'error-archivo\'>⚠️ No se encontró la imagen: contenido-3.jpeg</div>'">
                             </div>
                             <div class="carrusel-slide">
-                                <video src="imágenes/Imagenes/rappi.mp4" controls preload="metadata"></video>
+                                <video src="imagenes/Imagenes/rappi.mp4" controls preload="metadata" onerror="this.parentElement.innerHTML='<div class=\'error-archivo\'>⚠️ No se encontró el video: rappi.mp4</div>'"></video>
                             </div>
                         </div>
                     </div>
@@ -509,8 +519,6 @@
             const contenedor = document.querySelector(`#${id} .carrusel-track`);
             const primerSlide = contenedor.querySelector('.carrusel-slide');
             if (!primerSlide) return;
-            
-            // Calcula de forma precisa el ancho de cada elemento deslizable incluyendo márgenes
             const anchoSlide = primerSlide.offsetWidth;
             contenedor.scrollBy({ left: anchoSlide * direccion, behavior: 'smooth' });
         }
